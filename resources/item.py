@@ -27,7 +27,7 @@ class Item(Resource):
     def delete(self, name):
         item = ItemModel.find_by_name(name)
         if item:
-            ItemModel.delete_from_db()
+            item.delete_from_db()
         return {'message': 'Item deleted'}
 
     def put(self, name):
@@ -37,7 +37,7 @@ class Item(Resource):
             item = ItemModel(name, data['price'])
         else:
             item.price = data['price']
-        item = ItemModel.save_to_db()
+            item.save_to_db()
         return item.json()
 
 class ItemList(Resource):
