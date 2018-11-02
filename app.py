@@ -1,9 +1,9 @@
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
-from sercurity import *
+from sercurity import authenticate, identity
 from resources.user import UserRegister
-from resources.item import *
+from resources.item import Item, ItemList
 import create_tables
 
 app = Flask(__name__)
